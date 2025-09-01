@@ -7,6 +7,7 @@ const boardElement = document.getElementById("board");
 window.onload = function () {
     setGame();
 }
+document.getElementById("play-again").addEventListener("click", playAgain);
 
 function setGame() {
     boardElement.innerHTML = "";
@@ -215,13 +216,13 @@ function checkGameOver() {
 
     return true; // no empty tile + no merge → game over
 }
-document.getElementById("play-again").addEventListener("click", () => {
+
+function playAgain() {
     score = 0;
     document.getElementById("score").innerText = score;
     setGame(); // restart game
     document.getElementById("play-again").style.display = "none"; // hide button again
-});
-
+}
 function gameOver() {
     document.removeEventListener("keyup", handleKeyUp);
     setTimeout(() => {
